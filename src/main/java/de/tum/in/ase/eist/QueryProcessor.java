@@ -2,6 +2,9 @@ package de.tum.in.ase.eist;
 
 import org.springframework.stereotype.Service;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Service
 public class QueryProcessor {
 
@@ -14,8 +17,13 @@ public class QueryProcessor {
         } else if (query.contains("name")) {
            return "Alex";
 
-        } else if (query.contains("what is 11 plus 9")) {
-            return "20";
+        } else if (query.contains("plus")) {
+            Pattern p = Pattern.compile("-?\\d+");
+            Matcher m = p.matcher(query);
+
+            var int1 = Integer.parseInt(m.group());
+            var int2 = Integer.parseInt(m.group());
+            return String.valueOf(int1+int2);
 
         } else if (query.contains("name")) {
             return "Alex";
