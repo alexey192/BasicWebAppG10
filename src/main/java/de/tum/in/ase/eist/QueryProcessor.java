@@ -23,7 +23,10 @@ public class QueryProcessor {
             Pattern p = Pattern.compile("-?\\d+");
             Matcher m = p.matcher(query);
 
+            m.find();
             var int1 = Integer.parseInt(m.group());
+
+            m.find();
             var int2 = Integer.parseInt(m.group());
             return String.valueOf(int1+int2);
 
