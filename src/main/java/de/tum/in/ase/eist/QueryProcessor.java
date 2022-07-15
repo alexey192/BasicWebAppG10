@@ -21,7 +21,7 @@ public class QueryProcessor {
 
         } else if (query.contains("plus")) {
             Pattern p = Pattern.compile("-?\\d+");
-            Matcher m = p.matcher(query);
+            Matcher m = p.matcher(query.substring(9));
 
             m.find();
             var int1 = Integer.parseInt(m.group());
@@ -32,7 +32,7 @@ public class QueryProcessor {
 
         } else if (query.contains("the largest")) {
             Pattern p = Pattern.compile("-?\\d+");
-            Matcher m = p.matcher(query);
+            Matcher m = p.matcher(query.substring(9));
 
             var t = new ArrayList<Integer>();
             while (m.find()) {
